@@ -1,0 +1,59 @@
+
+{% extends 'listing/base.html' %}
+{% block body %}
+
+<div class="properties-container container-fluid">
+
+	<!-- Properties list-->
+	<div class="row">
+        <div class="col-sm-12">
+            <!--<h3>{{ user.username }}'s Properties</h3>-->
+       		<h3> PROPERTY LISTING ALL</h3>
+        </div>
+		{% if all_properties %}
+			{% for property in all_properties %}
+				<div class="col-sm-4 col-sm-2">
+					<div class="thumbnail">
+						<a href="{% url 'listing:details' property.id%}">
+							<img src="{{ property.photolink.url }}" class="img-responsive">
+							</a>
+							<div class="caption">
+								<h2>{{ property.property_reference }}</h2>
+								<h2>{{ property.title }}</h2>
+							
+								<!-- View Details -->
+                                <a href="{% url 'listing:details' property.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+                                <!-- View Details 
+                                <a href="{% url 'listing:update_property' property.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>-->
+
+                                <!-- Edit -->>
+                                 <a href="{% url 'listing:update_property' property.id %}" class="btn btn-primary btn-sm" role="button">Edit</a>
+
+                                 <!-- Delete Album -->
+	                            <form action="{% url 'listing:delete_property' property.id %}" method="post" style="display: inline;">
+	                                {% csrf_token %}
+	                                <input type="hidden" name="property_id" value="{{ property_id }}" />
+	                                <button type="submit" class="btn btn-default btn-sm">
+	                                    <span class="glyphicon glyphicon-trash"></span>
+	                                </button>
+	                            </form>
+
+
+
+                              </div>
+					 </div>
+				</div>
+
+			{% endfor %}
+	``` {% else %}
+		</div>
+</div>
+
+		{% endif %}
+
+
+
+
+
+
+{% endblock %}

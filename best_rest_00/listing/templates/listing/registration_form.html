@@ -1,0 +1,32 @@
+{% extends 'listing/base.html' %}
+
+{% block body %}
+<div class="continer-fluid">
+	<h1> REGISTRATION FORM</h1>
+	<div class="row">
+
+		<div class="col-sm-12 colmd-7">
+			<div class="panel panel-default">
+				<div class='panel-body'>
+					<h3> Create a new acoount </h3>
+					<form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						{% include 'listing/form_template.html' %}
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-succes">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+{% endblock %}
+
+

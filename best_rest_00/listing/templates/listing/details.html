@@ -1,0 +1,49 @@
+
+{% extends 'listing/base.html' %}
+
+{% block body %}
+
+
+<div class="properties-container container-fluid">
+
+	  <div class="col-sm-10">
+            <!--<h3>{{ user.username }}'s Properties</h3>-->
+       		<h3> PROPERTY LISTING ALL</h3>
+        </div>
+			<div class="col-sm-12 col-sm-12">
+				<div class="thumbnail">		
+						<h1>{{ property.title }}</h1>
+						<img src="{{ property.photolink.url }}">
+		
+						
+							        	<div class="caption">
+											<h3>{{ property.property_reference }}</h3>
+											<h3>{{ property.price }}</h3>
+											<h3>{{ property.description }}</h3>
+										
+											<!-- View Details -->
+			                                <a href="{% url 'listing:details' property.id%}" class="btn btn-primary btn-sm" role="button">Edit</a>
+
+											<a href="" class="btn btn-primary btn-sm" role="button">Delete</a>	
+							
+								</div>
+
+
+		
+
+						
+					</div>
+
+				</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
